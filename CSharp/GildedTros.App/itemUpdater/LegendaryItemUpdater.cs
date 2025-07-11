@@ -10,5 +10,4 @@ public class LegendaryItemUpdater : UpdateItem
         item.SellIn = item.SellIn;
         item.Quality = item.Quality;
     }
-
 }

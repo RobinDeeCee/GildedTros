@@ -2,15 +2,12 @@
 
 public class SmellyItemUpdater : UpdateItem
 {
-    //TODO should be *2 the normal so this is maybe not that correct
     public override void UpdateQuality(Item item)
     {
-        item.Quality = item.Quality - 2;
-        if (item.SellIn <= 0)
-        {
-            item.Quality = item.Quality - 2;
-        }
+        base.UpdateQuality(item);
+        base.UpdateQuality(item);
+
         item.Quality = base.CheckMaxMinQuality(item.Quality);
-        item.SellIn = item.SellIn - 1;
+        item.SellIn = base.DayIsOver(item.SellIn);
     }
 }

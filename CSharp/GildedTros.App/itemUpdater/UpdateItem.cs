@@ -9,6 +9,11 @@ public abstract class UpdateItem : IUpdateItem
         return quality;
     }
 
+    public int DayIsOver(int amountOfDays)
+    {
+        return --amountOfDays;
+    }
+
     public virtual void UpdateQuality(Item item)
     {
         item.Quality = item.Quality - 1;
@@ -17,7 +22,5 @@ public abstract class UpdateItem : IUpdateItem
             item.Quality = item.Quality - 1;
         }
         item.Quality = CheckMaxMinQuality(item.Quality);
-
-        item.SellIn = item.SellIn - 1;
     }
 }

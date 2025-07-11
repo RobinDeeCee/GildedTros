@@ -6,6 +6,6 @@ public class GoodWineUpdater : UpdateItem
     {
         item.Quality += (item.SellIn <= 0) ? 2 : 1;
         item.Quality = CheckMaxMinQuality(item.Quality);
-        item.SellIn = item.SellIn - 1;
+        item.SellIn = base.DayIsOver(item.SellIn);
     }
 }

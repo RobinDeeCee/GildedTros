@@ -3,4 +3,5 @@ interface IUpdateItem
 {
     public void UpdateQuality(Item item);
     public int CheckMaxMinQuality(int quality);
+    public int DayIsOver(int amountOfDays);
 }

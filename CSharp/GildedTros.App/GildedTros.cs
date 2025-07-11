@@ -15,19 +15,21 @@ namespace GildedTros.App
 
         public void UpdateItem(Item item)
         {
-            if (item.Name == "B-DAWG Keychain"){
+            if (item.Name == ItemNames.BDAWGKeychain)
+            {
                 new LegendaryItemUpdater().UpdateQuality(item);
                 return;
             }
-            if (item.Name == "Good Wine"){
+            if (item.Name == ItemNames.GoodWine)
+            {
                 new GoodWineUpdater().UpdateQuality(item);
                 return;
             }
-            if (item.Name.Contains("Backstage passes")){
+            if (item.Name.Contains(ItemNames.BackstagePasses)){
                 new BackstagePassUpdater().UpdateQuality(item);
                 return;
             }
-            if (item.Name == "Duplicate Code" || item.Name == "Long Methods" || item.Name == "Ugly Variable Names"){ // TODO add to vars and make methode to check
+            if (ItemNames.IsSmellyItem(item)){
                 new SmellyItemUpdater().UpdateQuality(item);
                 return;
             }

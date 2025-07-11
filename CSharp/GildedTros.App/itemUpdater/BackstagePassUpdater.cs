@@ -17,7 +17,6 @@ public class BackstagePassUpdater : UpdateItem
                 item.Quality = 0;
             }
             item.Quality = CheckMaxMinQuality(item.Quality);
-
-            item.SellIn = item.SellIn - 1;
+            item.SellIn = base.DayIsOver(item.SellIn);
         }
     }
