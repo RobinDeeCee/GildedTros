@@ -1,13 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using GildedTros.App.itemUpdater;
+using GildedTros.App.updaters;
+using System.Collections.Generic;
 
 namespace GildedTros.App
 {
     public class GildedTros
     {
-        IList<Item> Items;
+        IList<Item> Items; // no cap
+
         public GildedTros(IList<Item> Items)
         {
             this.Items = Items;
+        }
+
+        public void UpdateItem(Item item)
+        {
+            if (item.Name == "B-DAWG Keychain")
+                new LegendaryItemUpdater();
+            if (item.Name == "Good Wine")
+                new GoodWineUpdater();
+            if (item.Name.Contains("Backstage passes"))
+                new BackstagePassUpdater();
+            if (item.Name == "Duplicate Code" || item.Name == "Long Methods" || item.Name == "Ugly Variable Names") // TODO add to vars and make methode to check
+                new SmellyItemUpdater();
+
+            new NormalItemUpdater();
         }
 
         // TODO need yo have: separation of concerns => each Item should be responsible for its own quality update logic

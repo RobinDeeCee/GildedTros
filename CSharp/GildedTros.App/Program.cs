@@ -27,7 +27,6 @@ namespace GildedTros.App
                 new Item {Name = "Ugly Variable Names", SellIn = 3, Quality = 6}
             };
 
-            // TODO need to have: do not send all the items, just one item at a time
             var app = new GildedTros(Items);
 
             for (var i = 0; i < 31; i++)
