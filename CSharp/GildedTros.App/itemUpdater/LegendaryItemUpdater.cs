@@ -3,10 +3,12 @@ using GildedTros.App.itemUpdater;
 
 namespace GildedTros.App.updaters;
 
-public class LegendaryItemUpdater : IUpdateItem
+public class LegendaryItemUpdater : UpdateItem
 {
-    public void UpdateQuality(Item item)
+    public override void UpdateQuality(Item item)
     {
-        throw new System.NotImplementedException();
+        item.SellIn = item.SellIn;
+        item.Quality = item.Quality;
     }
+
 }

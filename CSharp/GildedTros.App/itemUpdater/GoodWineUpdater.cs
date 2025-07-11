@@ -1,9 +1,10 @@
 ﻿namespace GildedTros.App.itemUpdater;
 
-public class GoodWineUpdater : IUpdateItem
+public class GoodWineUpdater : UpdateItem
 {
-    public void UpdateQuality(Item item)
+    public override void UpdateQuality(Item item)
     {
-        throw new System.NotImplementedException();
+        item.SellIn = item.SellIn - 1;
+        item.Quality = item.Quality + 1;
     }
 }

@@ -8,26 +8,6 @@ namespace GildedTros.App
     // TODO make private methode 'increaseByDays, what does loop X # amount over app.UpdateQuality(); to increase the days
     public class GildedTrosTest
     {
-        //This is just a 'Default Item'
-        [Fact]
-        public void RingOfCleanseningCodeUpdateCorrectly()
-        {
-            //Arrange
-            IList<Item> items = new List<Item> { new Item { Name = "Ring of Cleansening Code", SellIn = 2, Quality = 5 } };
-            GildedTros app = new GildedTros(items);
-
-            //Act * Assert
-            app.UpdateQuality();
-            Assert.Equal(1, items[0].SellIn);
-            Assert.Equal(4, items[0].Quality); //day one  = Quality--
-            app.UpdateQuality();
-            app.UpdateQuality();
-            Assert.Equal(1, items[0].Quality); // day 3 > Sellin = Quality--*2
-            app.UpdateQuality();
-            app.UpdateQuality();
-            Assert.Equal(0, items[0].Quality); // test if negative
-        }
-
         [Fact]
         public void GoodWineUpdateCorrectly()
         {
@@ -36,35 +16,34 @@ namespace GildedTros.App
             GildedTros app = new GildedTros(items);
 
             //Act * Assert
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(1, items[0].SellIn);
             Assert.Equal(46, items[0].Quality); //day one  = Quality--
-            app.UpdateQuality();
-            app.UpdateQuality();
-            app.UpdateQuality();
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
             Assert.Equal(50, items[0].Quality); //Should be 50 for the first time
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(50, items[0].Quality); // Should stay 50
         }
 
-        //This is just a 'Default Item'
         [Fact]
-        public void ElixirOfTheSOLIDUpdateCorrectly()
+        public void DefaultItemUpdateCorrectly()
         {
             //Arrange
             IList<Item> items = new List<Item> { new Item { Name = "Elixir of the SOLID", SellIn = 2, Quality = 5 } };
             GildedTros app = new GildedTros(items);
 
             //Act * Assert
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(1, items[0].SellIn);
             Assert.Equal(4, items[0].Quality); //day one  = Quality--
-            app.UpdateQuality();
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
             Assert.Equal(1, items[0].Quality); // day 3 > Sellin = Quality--*2
-            app.UpdateQuality();
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
             Assert.Equal(0, items[0].Quality); // test if negative
         }
 
@@ -76,10 +55,10 @@ namespace GildedTros.App
             GildedTros app = new GildedTros(items);
 
             //Act * Assert
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(2, items[0].SellIn); //Stays the same
             Assert.Equal(5, items[0].Quality); //Stays the same
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(2, items[0].SellIn); //Stays the same
             Assert.Equal(5, items[0].Quality); //Stays the same
         }
@@ -92,38 +71,37 @@ namespace GildedTros.App
             GildedTros app = new GildedTros(items);
 
             //Act * Assert
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(14, items[0].SellIn);
             Assert.Equal(6, items[0].Quality);
-            app.UpdateQuality();
-            app.UpdateQuality();
-            app.UpdateQuality();
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
             Assert.Equal(10, items[0].SellIn); // at day 10 to go
             Assert.Equal(10, items[0].Quality);
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(9, items[0].SellIn);
             Assert.Equal(12, items[0].Quality); //will increase +2
-            app.UpdateQuality();
-            app.UpdateQuality();
-            app.UpdateQuality();
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
             Assert.Equal(5, items[0].SellIn);
             Assert.Equal(20, items[0].Quality); // at day 5 to go
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(4, items[0].SellIn);
             Assert.Equal(23, items[0].Quality); //will increase +3
-            app.UpdateQuality();
-            app.UpdateQuality();
-            app.UpdateQuality();
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
             Assert.Equal(0, items[0].SellIn);
             Assert.Equal(35, items[0].Quality); //last Quality before the end day
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(0, items[0].Quality); //to late = Quality 0
         }
 
-        //TODO fix code here - this is not working correctly
         [Fact]
         public void SmellyItemUpdateCorrectly()
         {
@@ -132,15 +110,15 @@ namespace GildedTros.App
             GildedTros app = new GildedTros(items);
 
             //Act * Assert
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(1, items[0].SellIn);
             Assert.Equal(8, items[0].Quality);
-            app.UpdateQuality();
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
+            app.UpdateItem(items[0]);
             Assert.Equal(2, items[0].Quality);
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(0, items[0].Quality);
-            app.UpdateQuality();
+            app.UpdateItem(items[0]);
             Assert.Equal(0, items[0].Quality);
         }
     }
