@@ -3,8 +3,7 @@ using Xunit;
 
 namespace GildedTros.App
 {
-    // Write a test for every type of item, use these test to check if the logic is correct after the refactoring
-    // TODO Write test for Quality > 50 when Item in int state has 50, should trhow a error then
+    // TODO Write test for Quality > 50 when Item in init state has 50, should return the same 50 (do the same for 0)
     // TODO make private methode 'increaseByDays, what does loop X # amount over app.UpdateQuality(); to increase the days
     public class GildedTrosTest
     {
@@ -67,7 +66,7 @@ namespace GildedTros.App
         public void BackstagePassesForXUpdateCorrectly()
         {
             //Arrange
-            IList<Item> items = new List<Item> { new Item { Name = "Backstage passes for Re:factor", SellIn = 15, Quality = 5 } };
+            IList<Item> items = new List<Item> { new Item { Name = "Backstage passes for OTHER TEST", SellIn = 15, Quality = 5 } };
             GildedTros app = new GildedTros(items);
 
             //Act * Assert

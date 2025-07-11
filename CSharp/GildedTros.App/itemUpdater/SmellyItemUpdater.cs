@@ -10,6 +10,7 @@ public class SmellyItemUpdater : UpdateItem
         {
             item.Quality = item.Quality - 2;
         }
+        item.Quality = base.CheckMaxMinQuality(item.Quality);
         item.SellIn = item.SellIn - 1;
     }
 }

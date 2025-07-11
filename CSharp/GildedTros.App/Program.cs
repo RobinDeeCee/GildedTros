@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GildedTros.App
 {
@@ -9,9 +10,6 @@ namespace GildedTros.App
         {
             Console.WriteLine("OMGHAI!");
 
-            // I think a Name is more a type, 'new category of items' would be just new name I think
-            // What means that we should have a list of "subitems" not items
-            // I would make make a item a interface or abstract class, and then have a class for each item type, but requirement does not allow that
             IList<Item> Items = new List<Item>{
                 new Item {Name = "Ring of Cleansening Code", SellIn = 10, Quality = 20},
                 new Item {Name = "Good Wine", SellIn = 2, Quality = 0},
@@ -33,13 +31,12 @@ namespace GildedTros.App
             {
                 Console.WriteLine("-------- day " + i + " --------");
                 Console.WriteLine("name, sellIn, quality");
-                // TODO nice to have: I don't like for loop, I want linq
-                for (var j = 0; j < Items.Count; j++)
-                {
-                    System.Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
-                }
+                Items.Select(item => {
+                    Console.WriteLine($"{item.Name}, {item.SellIn}, {item.Quality}");
+                    app.UpdateItem(item);
+                    return item;
+                }).ToList(); // to 'force immediate execution'
                 Console.WriteLine("");
-                app.UpdateQuality();
             }
         }
     }

@@ -4,7 +4,8 @@ public class GoodWineUpdater : UpdateItem
 {
     public override void UpdateQuality(Item item)
     {
+        item.Quality += (item.SellIn <= 0) ? 2 : 1;
+        item.Quality = CheckMaxMinQuality(item.Quality);
         item.SellIn = item.SellIn - 1;
-        item.Quality = item.Quality + 1;
     }
 }
