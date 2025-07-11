@@ -16,15 +16,15 @@ namespace GildedTros.App
         public void UpdateItem(Item item)
         {
             if (item.Name == "B-DAWG Keychain")
-                new LegendaryItemUpdater();
+                new LegendaryItemUpdater().UpdateQuality(item);
             if (item.Name == "Good Wine")
-                new GoodWineUpdater();
+                new GoodWineUpdater().UpdateQuality(item);
             if (item.Name.Contains("Backstage passes"))
-                new BackstagePassUpdater();
+                new BackstagePassUpdater().UpdateQuality(item);
             if (item.Name == "Duplicate Code" || item.Name == "Long Methods" || item.Name == "Ugly Variable Names") // TODO add to vars and make methode to check
-                new SmellyItemUpdater();
+                new SmellyItemUpdater().UpdateQuality(item);
 
-            new NormalItemUpdater();
+            new NormalItemUpdater().UpdateQuality(item);
         }
 
         // TODO need yo have: separation of concerns => each Item should be responsible for its own quality update logic
