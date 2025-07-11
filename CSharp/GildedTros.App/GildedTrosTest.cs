@@ -4,6 +4,7 @@ using Xunit;
 namespace GildedTros.App
 {
     // Write a test for every type of item, use these test to check if the logic is correct after the refactoring
+    // TODO Write test for Quality > 50 when Item in int state has 50, should trhow a error then
     // TODO make private methode 'increaseByDays, what does loop X # amount over app.UpdateQuality(); to increase the days
     public class GildedTrosTest
     {
@@ -133,14 +134,14 @@ namespace GildedTros.App
             //Act * Assert
             app.UpdateQuality();
             Assert.Equal(1, Items[0].SellIn);
-            Assert.Equal(8, Items[0].Quality); //should be 8 is 9
-            app.UpdateQuality(); //6 is 8
-            app.UpdateQuality(); //4 is 7
-            Assert.Equal(2, Items[0].Quality); //2 is 6
-            app.UpdateQuality(); // 0 is 4
-            Assert.Equal(0, Items[0].Quality); // test if negative
-            app.UpdateQuality(); // 0 is 2
-            Assert.Equal(0, Items[0].Quality); // test if negative
+            Assert.Equal(8, Items[0].Quality);
+            app.UpdateQuality();
+            app.UpdateQuality();
+            Assert.Equal(2, Items[0].Quality);
+            app.UpdateQuality();
+            Assert.Equal(0, Items[0].Quality);
+            app.UpdateQuality();
+            Assert.Equal(0, Items[0].Quality);
         }
     }
 }

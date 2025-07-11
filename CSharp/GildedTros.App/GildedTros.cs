@@ -25,6 +25,10 @@ namespace GildedTros.App
                         {
                             Items[i].Quality = Items[i].Quality - 1;
                         }
+                        if (Items[i].Name == "Duplicate Code" || Items[i].Name == "Long Methods" || Items[i].Name == "Ugly Variable Names")
+                        {
+                            Items[i].Quality = Items[i].Quality - 1;
+                        }
                     }
                 }
                 else
@@ -70,6 +74,10 @@ namespace GildedTros.App
                             if (Items[i].Quality > 0)
                             {
                                 if (Items[i].Name != "B-DAWG Keychain")
+                                {
+                                    Items[i].Quality = Items[i].Quality - 1;
+                                }
+                                if (Items[i].Name == "Duplicate Code" || Items[i].Name == "Long Methods" || Items[i].Name == "Ugly Variable Names")
                                 {
                                     Items[i].Quality = Items[i].Quality - 1;
                                 }
